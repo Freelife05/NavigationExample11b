@@ -13,7 +13,8 @@ namespace NavigationExample11b.View
 {
     public partial class LoginViewcs : Form
     {
-       
+        LoginController controller = new LoginController();
+
         public LoginViewcs()
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace NavigationExample11b.View
         {
             var username = txtUsername.Text;
             var password = txtPassword.Text;
-            var users = LoginController.GetAll();
+            var users = controller.GetAll();
             bool isValidUser = false;
             bool isValidPass = false;
             foreach(var u in users)

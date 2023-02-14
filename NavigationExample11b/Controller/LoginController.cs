@@ -8,24 +8,34 @@ using System.Threading.Tasks;
 
 namespace NavigationExample11b.Controller
 {
-    internal static class LoginController
+    internal class LoginController
     {
         
-        static List<User> users = new List<User>()
+       internal void AddUser(User user)
         {
-           new User("Pesho", "12345"),
-           new User("Admin", "admin123")
-        };
-           
-        
-        internal static void AddUser(User user)
-        {
-            users.Add(user);
+            using(NavigationDBEntities db = new NavigationDBEntities())
+            {
+                var lastUser = db.Users.ToList().LastOrDefault();
+                if (lastUser == null)
+                {
+                    user.Id = 1;
+                }
+                else
+                {
+                    user.Id = lastUser.Id + 1;
+                }
+
+                db.Users.Add(user);
+                db.SaveChanges();
+            }
         }
 
-        internal static List<User> GetAll()
+        internal List<User> GetAll()
         {
-            return users;
+            using(NavigationDBEntities db = new NavigationDBEntities())
+            {
+                return db.Users.ToList();
+            }
         }
         
     }

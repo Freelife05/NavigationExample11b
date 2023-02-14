@@ -14,6 +14,8 @@ namespace NavigationExample11b.View
 {
     public partial class RegisterView : Form
     {
+        LoginController controller = new LoginController();
+
         public RegisterView()
         {
             InitializeComponent();
@@ -27,8 +29,10 @@ namespace NavigationExample11b.View
             {
                 MessageBox.Show("Please enter your username");
             }
-            User user = new User(username, password);
-            LoginController.AddUser(user);
+            User user = new User();
+            user.Username = username;
+            user.Password = password;
+            controller.AddUser(user);
             LoginViewcs m = new LoginViewcs();
             this.Hide();
             m.Show();
