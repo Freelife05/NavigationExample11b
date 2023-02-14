@@ -37,6 +37,14 @@ namespace NavigationExample11b.Controller
                 return db.Users.ToList();
             }
         }
+
+        public  void UpdtaeUser(int id, User user)
+        {
+            using (NavigationDBEntities db = new NavigationDBEntities())
+            {
+
+            }
+        }
         
     }
 }
