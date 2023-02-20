@@ -32,7 +32,7 @@ namespace NavigationExample11b.View
             User user = new User();
             user.Username = username;
             user.Password = password;
-            controller.AddUser(user);
+            controller.CreateUser(user);
             LoginViewcs m = new LoginViewcs();
             this.Hide();
             m.Show();

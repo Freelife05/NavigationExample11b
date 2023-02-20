@@ -11,7 +11,7 @@ namespace NavigationExample11b.Controller
     internal class LoginController
     {
         
-       internal void AddUser(User user)
+       internal void CreateUser(User user)
         {
             using(NavigationDBEntities db = new NavigationDBEntities())
             {
@@ -30,7 +30,7 @@ namespace NavigationExample11b.Controller
             }
         }
 
-        internal List<User> GetAll()
+        internal List<User> ReadAllUsers()
         {
             using(NavigationDBEntities db = new NavigationDBEntities())
             {
@@ -38,7 +38,7 @@ namespace NavigationExample11b.Controller
             }
         }
 
-        public  void UpdtaeUser(int id, User user)
+        public  void UpdateUser(int id, User user)
         {
             using (NavigationDBEntities db = new NavigationDBEntities())
             {

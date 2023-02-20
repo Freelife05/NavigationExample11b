@@ -24,7 +24,7 @@ namespace NavigationExample11b.View
         {
             var username = txtUsername.Text;
             var password = txtPassword.Text;
-            var users = controller.GetAll();
+            var users = controller.ReadAllUsers();
             bool isValidUser = false;
             bool isValidPass = false;
             foreach(var u in users)

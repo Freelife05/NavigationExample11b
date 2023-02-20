@@ -1,4 +1,5 @@
 ﻿using NavigationExample11b.Controller;
+using NavigationExample11b.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,10 +19,26 @@ namespace NavigationExample11b.View
         {
             InitializeComponent();
         }
+        private void RefreshData()
+        {
+            dgv.DataSource = controller.ReadAllUsers();
+        }
 
         private void MainView_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = controller.GetAll();
+            RefreshData();
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            var user = new User(txtUsername.Text, txtPassword.Text);
+            controller.CreateUser(user);
+            RefreshData();
+        }
+
+        private void btnRead_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
