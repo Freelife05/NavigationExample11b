@@ -38,7 +38,24 @@ namespace NavigationExample11b.View
 
         private void btnRead_Click(object sender, EventArgs e)
         {
+            RefreshData();
+        }
 
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dgv.CurrentRow;
+            int id = int.Parse(row.Cells[0].Value.ToString());
+            User user = new User(txtUsername.Text, txtPassword.Text);
+            controller.UpdateUser(id, user);
+            RefreshData();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dgv.CurrentRow;
+            int id = int.Parse(row.Cells[0].Value.ToString());
+            controller.DeleteUser(id);
+            RefreshData();
         }
     }
 }
